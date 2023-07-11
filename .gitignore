@@ -1,2 +1,47 @@
-node_modules
-.env
+# Ignore compiled files
+*.class
+*.o
+*.pyc
+
+# Ignore package files
+*.jar
+*.war
+*.ear
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+*.sublime-*
+
+# Ignore build output directories
+/target/
+/bin/
+/dist/
+
+# Ignore log files
+*.log
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*~
+
+# Ignore sensitive or environment-specific information
+config.ini
+secrets.txt
+
+# Ignore dependencies and package managers
+/node_modules/
+/bower_components/
+/vendor/
+
+# Ignore specific files or directories
+custom-file.txt
+/custom-directory/
+
+# Ignore backup files
+*.bak
+
