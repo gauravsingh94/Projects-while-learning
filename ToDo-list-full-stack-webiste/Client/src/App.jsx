@@ -1,9 +1,29 @@
 import { useState, useEffect } from "react";
+import Card from "@mui/material/Card";
+import Box from "@mui/material/Box";
+import CardContent from "@mui/material/CardContent";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Button from "@mui/material/Button";
+import AddBoxIcon from "@mui/icons-material/AddBox";
 import "./App.css";
 
 function App() {
+
+  
+
   const [todos, setTodos] = useState([]);
+  const [inputData, setInputData] = useState("");
+  const [descriptionData, setDescriptionData] = useState("");
   // fetch all todos from server
+
+  const handleInputChange = (e) => {
+    setInputData(e.target.value);
+  };
+  const handleDescriptionChange = (e) => {
+    setDescriptionData(e.target.value);
+  };
 
   const fetchUserData = () => {
     fetch("http://localhost:3000/todos")
@@ -36,8 +56,8 @@ function App() {
   };
 
   const addTodo = () => {
-    const title = document.getElementById("titleInput").value;
-    const description = document.getElementById("descriptionInput").value;
+    const title = inputData;
+    const description = descriptionData;
 
     console.log(title);
     console.log(description);
@@ -56,9 +76,7 @@ function App() {
         res.json();
       })
       .then((data) => {
-        console.log(data);
-        document.getElementById("titleInput").value = "";
-        document.getElementById("descriptionInput").value = "";
+        console.log("data logged:", data);
       })
       .catch((error) => {
         console.error("Error while deleting todo:", id);
@@ -66,25 +84,53 @@ function App() {
   };
 
   return (
-    <>
-      <div>
-        <h1>Easy Todo App</h1>
-        <input id="titleInput" type="text" placeholder="Title" />
-        <br />
-        <input id="descriptionInput" type="text" placeholder="Description" />
-        <br />
-        <button onClick={addTodo}>+ Add</button>
-        {todos.map((todo) => (
-          <Todo
-            key={todo.id}
-            title={todo.title}
-            description={todo.description}
-            deleteTodo={deleteTodo}
-            id={todo.id}
-          />
-        ))}
-      </div>
-    </>
+    <div className="container">
+      <Box>
+        <Card sx={{ minWidth: 275 ,backgroundColor: "#F5F5F5"}}>
+          <CardContent>
+            <div>
+              <h1>Easy Todo App</h1>
+              <TextField
+                id="outlined-basic"
+                onChange={handleInputChange}
+                label="Title"
+                variant="outlined"
+                color="primary"
+              />
+              <br />
+              <br />
+              <div className="description">
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleDescriptionChange}
+                  label="Description"
+                  variant="outlined"
+                />
+                <br />
+                <IconButton aria-label="add" onClick={addTodo}>
+                  <AddBoxIcon />
+                </IconButton>
+              </div>
+              <div className="list-todo">
+                <ul>
+                  {todos.map((todo) => (
+                    <li>
+                      <Todo
+                        key={todo.id}
+                        title={todo.title}
+                        description={todo.description}
+                        deleteTodo={deleteTodo}
+                        id={todo.id}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </Box>
+    </div>
   );
 }
 
@@ -95,13 +141,13 @@ function Todo(props) {
   };
   return (
     <div>
-      <ul>
-        <li>
-          <h3>{props.title}</h3>
-          <p>{props.description}</p>
-          <button onClick={handleDelete}>Delete</button>
-        </li>
-      </ul>
+      <div className="todo">
+        <h3>{props.title}</h3>
+        <IconButton aria-label="delete" onClick={handleDelete}>
+          <DeleteIcon />
+        </IconButton>
+      </div>
+      <p>{props.description}</p>
     </div>
   );
 }
