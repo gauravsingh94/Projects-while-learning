@@ -37,9 +37,9 @@ To get started with the ToDo-list-full-stack-website project, follow the instruc
 
 3. Install the dependencies for both the frontend and backend.
    ```shell
-   cd frontend
+   cd Client
    npm install
-   cd ../backend
+   cd ../server
    npm install
    ```
 
@@ -47,13 +47,13 @@ To get started with the ToDo-list-full-stack-website project, follow the instruc
 
 1. Start the backend server.
    ```shell
-   cd backend
+   cd server
    npm start
    ```
 
 2. Open a new terminal and start the frontend development server.
    ```shell
-   cd frontend
+   cd Client
    npm start
    ```
 
