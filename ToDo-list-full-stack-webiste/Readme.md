@@ -2,6 +2,9 @@
 
 This is a full-stack web application called ToDo-list, which I developed while learning MUI React and backend concepts. It allows users to create and manage their todo tasks. Please note that this project is primarily meant for practicing the concepts and may contain some bugs.
 
+![Screenshot from 2023-07-14 01-40-22](https://github.com/gauravsingh94/Projects-while-learning/assets/99260988/870b8254-9c48-4dc5-84db-98dabc40ff3f)
+
+
 ## Features
 
 - Create new todo tasks
