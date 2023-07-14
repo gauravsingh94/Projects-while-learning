@@ -32,10 +32,10 @@ To get started with the admin client, follow these steps:
 4. Once the installation is complete, you can start the development server using the command:
 
    ```
-   npm start
+   npm run dev
    ```
 
-   This will launch the admin client on your local machine at `http://localhost:3000`.
+   This will launch the admin client on your local machine at `http://localhost:5173`.
 
 ## Usage
 
