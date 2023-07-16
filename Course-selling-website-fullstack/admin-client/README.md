@@ -1,18 +1,71 @@
+# Course Selling Website - Admin Client
 
-### Create the frontend for the ADMIN DASHBOARD for a course selling app
+Welcome to the Admin Client of the Course Selling Website! This project is part of a full-stack development course and focuses on the admin functionality of the website. The admin client allows authorized users to create, delete, and publish courses.
 
-Please start backend from week-3/solutions/03-course-app-medium.js (add app.listen, cors if its not there already)
+## Project Structure
 
-1. Start the backend from week-3/solutions/02-course-app-medium.js
-2. We will use authentication, which means you need to get back the jwt and store it in localStorage (read https://www.robinwieruch.de/local-storage-react/)
-3. You need to understand routing for this to work, so we've added a basic boilerplate that lets you navigate between 3 routes (check App.jsx)
-4. To test the current app, run `npm run dev` and see the output on localhost:3000
+The project consists of three main components: the admin client, the server, and the user client. In this repository, you will find the admin client code. Below is an overview of the project structure:
 
-Things that will confuse you - 
-1. Routing. Here is a great blog post explaining it - https://hygraph.com/blog/routing-in-react . If you open App.jsx you should intuitively be able to understand whats happening
-2. Authentication (More specifically , how to store it in localstorage and how to put it in headers when sending the request)
+- `admin-client/` - Contains the source code and assets for the admin client.
+- `server/` - Contains the server-side code responsible for handling API requests and interacting with the database.
+- `user-client/` - Contains the source code and assets for the user client (not included in this repository).
 
-### Hard todo - 
-Add routing to introduce a new route /courses/:id which shows you the contents of a single course
-It should also let you edit the course title, description and price
-This will be needed in the next assignment
+## Prerequisites
+
+Before running the admin client, ensure that you have the following dependencies installed:
+
+- Node.js (v12 or above)
+- npm (v6 or above)
+
+## Getting Started
+
+To get started with the admin client, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Open a terminal and navigate to the `admin-client` directory.
+3. Install the required dependencies by running the following command:
+
+   ```
+   npm install
+   ```
+
+4. Once the installation is complete, you can start the development server using the command:
+
+   ```
+   npm run dev
+   ```
+
+   This will launch the admin client on your local machine at `http://localhost:5173`.
+
+## Usage
+
+The admin client provides the following routes and functionalities:
+
+- `/` - Home page of the admin client.
+- `/login` - Allows admin users to log in.
+- `/signup` - Allows new admin users to create an account.
+- `/createcourses` - Enables admin users to create new courses.
+- `/courses` - Displays a list of all courses and provides the ability to delete specific courses.
+
+## Authentication
+
+This project uses JWT (JSON Web Token) authentication for user authentication. Upon successful login or signup, a JWT token is generated and stored in the local storage of the client's browser. This token is then sent with subsequent API requests to authenticate and authorize the admin user.
+
+Please note that storing tokens in local storage is not the most secure method, and in a production environment, it is recommended to use more secure alternatives like HTTP-only cookies.
+
+## Contributing
+
+If you'd like to contribute to this project, please follow these guidelines:
+
+1. Fork the repository and create your branch from the `main` branch.
+2. Make your changes and ensure they follow the project's coding style and conventions.
+3. Test your changes to ensure they work as expected.
+4. Commit your changes and push them to your fork.
+5. Open a pull request to the `main` branch of this repository, describing your changes and improvements.
+
+
+## Acknowledgments
+
+I would like to acknowledge the full-stack development course and the instructors for providing the knowledge and guidance necessary to build this project.
+
+If you have any questions or need further assistance, please feel free to reach out. Happy coding!
