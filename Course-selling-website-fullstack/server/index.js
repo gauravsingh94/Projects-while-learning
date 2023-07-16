@@ -57,7 +57,6 @@ const Course = mongoose.model("Course", courseSchema);
 
 const authenticateJwt = (req, res, next) => {
   const authHeader = req.headers.authorization;
-  console.log(authHeader);
   if (authHeader) {
     const token = authHeader.split(" ")[1];
     jwt.verify(token, secret, (err, user) => {
@@ -83,6 +82,7 @@ const generateJwt = (user) => {
 app.post("/admin/signup", (req, res) => {
   // logic to sign up admin
   const { username, password } = req.body;
+  console.log(req.body);
   Admin.findOne({ username }).then((admin) => {
     if (admin) {
       res.status(409).json({ error: "Admin already exists." });
@@ -100,12 +100,13 @@ app.post("/admin/signup", (req, res) => {
 app.post("/admin/login", async (req, res) => {
   // logic to log in admin
   const { username, password } = req.headers;
+  console.log(req.headers);
   const admin = await Admin.findOne({ username, password });
   if (admin) {
     const token = generateJwt(admin);
     res.json({ message: "User login successfully.", token: token });
   } else {
-    res.status(409).json({ error: "Invalid username or password." });
+    res.status(401).json({ error: "Invalid username or password." });
   }
 });
 

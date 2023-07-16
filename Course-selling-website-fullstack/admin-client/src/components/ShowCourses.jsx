@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { Box } from "@mui/material";
+import ResponsiveAppBar from "./nav.jsx"
 
 function ShowCourses() {
   const [courses, setCourses] = React.useState([]);
@@ -27,7 +29,7 @@ function ShowCourses() {
 
     handleGetRequest();
 
-    const interval = setInterval(handleGetRequest,3000);
+    const interval = setInterval(handleGetRequest,10000);
     return ()=>{
         clearInterval(interval);
     }
@@ -55,24 +57,9 @@ function ShowCourses() {
   console.log(courses[0]);
 
   return (
-    <div>
-      <h1>Courses</h1>
-      {console.log(courses)}
-      {Array.isArray(courses) ? (
-        courses.map((a) => {
-          return (
-            <div key={a._id}>
-              <h2>{a.title}</h2>
-              <p>{a.description}</p>
-              <p>{a.published ? "Published" : "Unpublished"}</p>
-              <button onClick={()=>handleDelete(a._id)}>Delete</button>
-            </div>
-          );
-        })
-      ) : (
-        <p>Course not found</p>
-      )}
-    </div>
+    <Box>
+      <ResponsiveAppBar/>
+    </Box>
   );
 }
 
