@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const { ObjectId } = require('mongodb');
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const app = express();
@@ -64,7 +65,6 @@ const authenticateJwt = (req, res, next) => {
         return res.sendStatus(403);
       } else {
         req.user = user;
-        console.log(user);
         next();
       }
     });
@@ -97,6 +97,10 @@ app.post("/admin/signup", (req, res) => {
   });
 });
 
+app.get("/admin/username",authenticateJwt,async(req,res)=>{
+  res.json(req.user.username);
+});
+
 app.post("/admin/login", async (req, res) => {
   // logic to log in admin
   const { username, password } = req.headers;
@@ -125,6 +129,18 @@ app.put("/admin/courses/:courseId", authenticateJwt, async (req, res) => {
   });
   if (course) {
     res.json({ message: "Course updated successfully." });
+  } else {
+    res.json({ error: "Course not found." });
+  }
+});
+
+app.get("/admin/courses/:courseId", authenticateJwt, async (req, res) => {
+
+  // logic to edit a course
+  console.log(req.params.courseId);
+  const course = await Course.findOne({_id:new ObjectId(req.params.courseId)});
+  if (course) {
+    res.json(course);
   } else {
     res.json({ error: "Course not found." });
   }
