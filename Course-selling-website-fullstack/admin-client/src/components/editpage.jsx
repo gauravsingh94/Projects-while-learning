@@ -10,8 +10,42 @@ import "./css/editpage.css";
 function Edit() {
   const [course, setCourses] = useState("");
   const [published, setPublished] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [imageLink, setImageLink] = useState("");
 
+  console.log(title);
+  console.log(description);
+  console.log(price);
+    
+  const handleUpdate = async()=>{
   
+    const newCourse = {
+      title : title,
+      description:description,
+      price:price,
+      imageLink:imageLink,
+      published:props.published
+    }
+
+    const headers={
+      authorization:"Bearer "+localStorage.getItem("token"),
+      "Content-Type":"application/json"
+    }
+    
+    try{
+      const res = await axios.put("http://localhost:3000/admin/courses/"+useParams().courseId,newCourse,{headers})
+      console.log(res.data);
+    }catch(error){
+      if(error.response){
+        console.log(error.response.data);
+      }
+      else{
+        console.log(error.message);
+      }
+    }
+  }
 
   function onClickPublished() {
     published ? setPublished(false) : setPublished(true);
@@ -73,6 +107,10 @@ function Edit() {
           <UpdateCard
             published={published}
             handlePublished={onClickPublished}
+            setImageLink={setImageLink}
+            setPrice={setPrice}
+            setDescription={setDescription}
+            setTitle={setTitle}
           />
         </Grid>
       </Grid>
