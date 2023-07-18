@@ -8,6 +8,9 @@ import { Grid } from "@mui/material";
 import "./css/editpage.css";
 
 function Edit() {
+  const courseId = useParams();
+  console.log(courseId.courseId);
+
   const [course, setCourses] = useState("");
   const [published, setPublished] = useState(false);
   const [title, setTitle] = useState("");
@@ -20,13 +23,12 @@ function Edit() {
   console.log(price);
     
   const handleUpdate = async()=>{
-  
     const newCourse = {
       title : title,
       description:description,
       price:price,
       imageLink:imageLink,
-      published:props.published
+      published:published
     }
 
     const headers={
@@ -35,8 +37,9 @@ function Edit() {
     }
     
     try{
-      const res = await axios.put("http://localhost:3000/admin/courses/"+useParams().courseId,newCourse,{headers})
+      const res = await axios.put("http://localhost:3000/admin/courses/"+courseId.courseId,newCourse,{headers})
       console.log(res.data);
+      getCourse();
     }catch(error){
       if(error.response){
         console.log(error.response.data);
@@ -51,7 +54,6 @@ function Edit() {
     published ? setPublished(false) : setPublished(true);
   }
 
-  const courseId = useParams();
 
   const getCourse = async () => {
     const headers = {
@@ -64,6 +66,10 @@ function Edit() {
         { headers }
       );
       setPublished(res.data.published);
+      setTitle(res.data.title);
+      setDescription(res.data.description);
+      setPrice(res.data.price);
+      setImageLink(res.data.imageLink);
       setCourses(res.data);
     } catch (error) {
       if (error.response) {
@@ -111,6 +117,7 @@ function Edit() {
             setPrice={setPrice}
             setDescription={setDescription}
             setTitle={setTitle}
+            ohandleUpdate={handleUpdate}
           />
         </Grid>
       </Grid>

@@ -44,7 +44,7 @@ function UpdateCard(props) {
           variant="contained"
           color="success"
           sx={{ marginTop: "10px" }}
-
+          onClick={props.ohandleUpdate}
         >
           Update
         </Button>
