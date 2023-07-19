@@ -1,11 +1,13 @@
 import React from "react";
-import { AppBar, Typography, Toolbar, Button } from "@mui/material";
+import { AppBar, Typography, Toolbar, Button, Tab, Tabs } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Nav() {
+function Nav(props) {
   const navigate = useNavigate();
   const [username, setUsername] = React.useState("");
+  const [selectedTab, setSelectedTab] = React.useState(0);
+  const [isCourse,setisCourses] = React.useState(true);
 
   React.useEffect(() => {
     const getUsername = async () => {
@@ -29,10 +31,18 @@ function Nav() {
     getUsername();
   }, []);
 
-  const handleLogOut=()=>{
+  const handleLogOut = () => {
     localStorage.removeItem("token");
     navigate("/login");
-  }
+  };
+  const handleCoursesClick = () => {
+    navigate("/courses");
+  };
+
+  const handleCreateCourseClick = () => {
+    navigate("/createcourse");
+  };
+
   return (
     <>
       <AppBar>
@@ -41,10 +51,15 @@ function Nav() {
             Course-Website
           </Typography>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <Typography>Admin- {username}</Typography>
+          <Tabs >
+            {!props.isCourse && <Tab label="Courses" sx={{color:"white"}} onClick={handleCoursesClick} />}
+            {props.isCourse && <Tab label="Create Course"sx={{color:"white"}} onClick={handleCreateCourseClick} />}
+          </Tabs>
+            <Typography sx={{ marginLeft: "10px" }}>Admin - {username}</Typography>
             <Button
               variant="contained"
-              sx={{ marginLeft: "10px", backgroundColor: "#A2FF86" }}
+              color="success"
+              sx={{ marginLeft: "10px" }}
               onClick={handleLogOut}
             >
               Logout

@@ -10,7 +10,6 @@ import "./css/courses.css"
 function ShowCourses() {
   
   const [courses, setCourses] = React.useState([]);
-
   const handleGetRequest = async () => {
     const headers = {
       authorization: "Bearer " + localStorage.getItem("token"),
@@ -62,7 +61,7 @@ function ShowCourses() {
     <Box sx={{
       minHeight: "100vh", 
     }}>
-      <Nav />
+      <Nav isCourse={true}/>
       <Grid
         container
         sx={{ margin: "80px auto", justifyContent: "space-between" }}

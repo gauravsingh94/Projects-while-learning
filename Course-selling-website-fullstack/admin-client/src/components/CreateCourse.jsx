@@ -1,5 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Nav from "./nav.jsx";
+import AddCard from "./comp/addCard.jsx";
+import { Grid } from "@mui/material";
 
 function CreateCourse() {
   const [title, setTitle] = useState("");
@@ -8,14 +11,11 @@ function CreateCourse() {
   const [image, setImage] = useState("");
   const [published, setPublished] = useState(false);
 
+
   const handleClick = () => {
     published ? setPublished(false) : setPublished(true);
   };
   const handleButtonClick = async () => {
-    console.log(title);
-    console.log(description);
-    console.log(price);
-    console.log(image);
 
     const body = {
       title: title,
@@ -45,43 +45,31 @@ function CreateCourse() {
     }
   };
 
+
   useEffect(() => {});
   console.log(published);
   return (
     <div>
-      <h1>Create Course</h1>
-      <h2>Title:</h2>
-      <input
-        type="text"
-        placeholder="title"
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <br />
-      <h2>Description:</h2>
-      <input
-        type="text"
-        placeholder="Description"
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <br />
-      <h2>Price:</h2>
-      <input
-        type="text"
-        placeholder="Price"
-        onChange={(e) => setPrice(e.target.value)}
-      />
-      <br />
-      <h2>Image:</h2>
-      <input
-        type="text"
-        placeholder="Image-Link"
-        onChange={(e) => setImage(e.target.value)}
-      />
-      <h3>Do you want to publish the course after creating?</h3>
-      {published ? <button onClick={handleClick}>Not Publish</button> : <button onClick={handleClick}>Publish</button>}
-      <br />
-      <br />
-      <button onClick={handleButtonClick}>Add Course</button>
+      <Nav isCourse={false}/>
+      <Grid
+        container
+        sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "140px",
+        }}
+      >
+        <Grid item>
+          <AddCard
+            setTitle={setTitle}
+            setDescription={setDescription}
+            setPrice={setPrice}
+            handlePublished={handleClick}
+            handleAdd={handleButtonClick}
+            published={published}
+          />
+        </Grid>
+      </Grid>
     </div>
   );
 }
