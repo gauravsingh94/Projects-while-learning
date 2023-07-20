@@ -8,6 +8,7 @@ function UpdateCard(props) {
       <Card sx={{ display: "flex", flexDirection: "column", padding: "15px" }}>
         <TextField
           id="outlined-basic"
+          value={props.title}
           label="Title"
           variant="outlined"
           sx={{ marginTop: "10px" }}
@@ -15,6 +16,7 @@ function UpdateCard(props) {
         />
         <TextField
           id="outlined-basic"
+          value = {props.description}
           label="Description"
           variant="outlined"
           sx={{ marginTop: "10px" }}
@@ -22,6 +24,7 @@ function UpdateCard(props) {
         />
         <TextField
           id="outlined-basic"
+          value={props.price}
           label="Price"
           variant="outlined"
           sx={{ marginTop: "10px" }}

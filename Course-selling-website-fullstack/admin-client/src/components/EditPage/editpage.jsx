@@ -107,6 +107,7 @@ function Edit() {
             price={course.price}
             Edit={false}
             published={published}
+              
           />
         </Grid>
         <Grid item>
@@ -118,6 +119,10 @@ function Edit() {
             setDescription={setDescription}
             setTitle={setTitle}
             ohandleUpdate={handleUpdate}
+            title={title}
+            description={description}
+            imageLink={imageLink}
+            price={price}
           />
         </Grid>
       </Grid>
