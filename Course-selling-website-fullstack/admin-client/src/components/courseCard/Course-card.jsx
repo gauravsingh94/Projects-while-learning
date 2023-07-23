@@ -14,7 +14,11 @@ export default function MediaCard(props) {
     navigate("/edit/" + props.courseId);
   }
   return (
+<<<<<<< HEAD
     <Card sx={{ minWidth: 250,maxWidth:250 }}>
+=======
+    <Card sx={{ minWidth:250}}>
+>>>>>>> a55f25f7bc24ad203abec824793247b6f5dc3a9b
       <CardMedia
         sx={{ height: 140 }}
         image="https://source.unsplash.com/random"
