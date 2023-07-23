@@ -6,23 +6,20 @@ import MediaCard from "../courseCard/Course-card.jsx";
 import UpdateCard from "./updateCard.jsx";
 import { Grid } from "@mui/material";
 import "./editpage.css";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import{titleAtom,descriptionAtom,priceAtom,publishedAtom ,imageLinkAtom,courseAtom} from "../atom/atom.json";
 
 function Edit() {
   const courseId = useParams();
   console.log(courseId.courseId);
 
-  const [course, setCourses] = useState("");
-  const [published, setPublished] = useState(false);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [imageLink, setImageLink] = useState("");
-
-  console.log(title);
-  console.log(description);
-  console.log(price);
-    
   const handleUpdate = async()=>{
+    const title = useRecoilValue(titleAtom);
+    const description = useRecoilValue(descriptionAtom);
+    const price = useRecoilValue(priceAtom);
+    const published = useRecoilValue(publishedAtom);
+    const imageLink = useRecoilValue(imageLinkAtom);
+
     const newCourse = {
       title : title,
       description:description,
@@ -51,7 +48,8 @@ function Edit() {
   }
 
   function onClickPublished() {
-    published ? setPublished(false) : setPublished(true);
+    const setPublished = useSetRecoilState(publishedAtom);
+    setPublished((existingVal)=>!existingVal);
   }
 
 
