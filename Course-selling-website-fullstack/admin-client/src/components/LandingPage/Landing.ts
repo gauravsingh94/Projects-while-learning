@@ -1,19 +1,20 @@
 import React from "react";
 import { Box, Typography, Button, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-// import "./Landing.css";
 
-/// This is the landing page. You need to add a link to the login page here.
-/// Maybe also check from the backend if the user is already logged in and then show them a logout button
-/// Logging a user out is as simple as deleting the token from the local storage.
-function Landing() {
-    const navigate = useNavigate();
-    const handleClick1 = ()=>{
-        navigate("/register");
-    }
-    const handleClick2 = ()=>{
-        navigate("/login");
-    }
+type LandingProps = {};
+
+function Landing(props: LandingProps): JSX.Element {
+  const navigate = useNavigate();
+
+  const handleClick1 = (): void => {
+    navigate("/register");
+  };
+
+  const handleClick2 = (): void => {
+    navigate("/login");
+  };
+
   return (
     <div>
       <Box
@@ -28,9 +29,10 @@ function Landing() {
           alignItems: "center",
         }}
       >
-        <Typography variant="h4">Welcome to course selling website Admin's Panel!</Typography>
-        {/* <a href="/register">Register</a> */}
-        <Grid container spacing={2} sx={{justifyContent:"center",marginTop:"10px"}}>
+        <Typography variant="h4">
+          Welcome to course selling website Admin's Panel!
+        </Typography>
+        <Grid container spacing={2} justifyContent="center" marginTop="10px">
           <Grid item>
             <Button variant="contained" color="success" onClick={handleClick1}>
               Register
@@ -46,6 +48,6 @@ function Landing() {
       </Box>
     </div>
   );
-}
+  
 
 export default Landing;

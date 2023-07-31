@@ -1,0 +1,196 @@
+[33mcommit ac9c3cc212c65b66db8f5439369e8d1ca1dc8357[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 01e2e465 a55f25f7
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Mon Jul 24 03:03:01 2023 +0530
+
+    Merge branch 'main' of github.com:gauravsingh94/Projects-while-learning
+
+[33mcommit 01e2e465ab2b0ea75657995b68cb60fab4cb8b18[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Mon Jul 24 02:58:40 2023 +0530
+
+    fix the size of card with less values
+
+[33mcommit 003bd710445d7c3895b4a7ff4347fcb197041ee3[m[33m ([m[1;32mlil-changes[m[33m)[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Mon Jul 24 02:49:59 2023 +0530
+
+    add fronted to root
+
+[33mcommit a55f25f7bc24ad203abec824793247b6f5dc3a9b[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Mon Jul 24 02:42:37 2023 +0530
+
+    Added fronted to the root
+
+[33mcommit a0115ea77cc54a3b99ab6c617e7de4eca48b7c9e[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Mon Jul 24 01:37:21 2023 +0530
+
+    bugs fix
+
+[33mcommit 08c9f089e1d030c0b04bf345a8cacdf8e56221c1[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Sun Jul 23 23:55:24 2023 +0530
+
+    Adding Recoil for state management
+
+[33mcommit 92be72bd8fea4abb48716c19ddd2b60bb42b7f56[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Fri Jul 21 02:05:44 2023 +0530
+
+    Organize the files of the server
+
+[33mcommit 3236d599911a80b9e48d09e49c27de201c50ff91[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Thu Jul 20 23:19:34 2023 +0530
+
+    Organize the files
+
+[33mcommit c3dd871df1f77438c3c8bd78d03cb2af43b68c69[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Thu Jul 20 23:12:06 2023 +0530
+
+    Organize the fiels
+
+[33mcommit 487da65f0fc65befc9e5a576642a79e7b6ecbba2[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Wed Jul 19 23:31:38 2023 +0530
+
+    admins part of website is completed
+
+[33mcommit 23332326410aef097d429b6245ebabf3dbdbd527[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Wed Jul 19 23:24:02 2023 +0530
+
+    new commit
+
+[33mcommit 5786db66ba2e65824965e0146897617b56a77551[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Wed Jul 19 18:21:48 2023 +0530
+
+    admin-part of the website is successfully completed with fronted
+
+[33mcommit b8ddab3a9894df485359617ded15ecf113eb3cd7[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Wed Jul 19 18:20:09 2023 +0530
+
+    admin-part of the website is successfully completed with fronted
+
+[33mcommit c22315f1ea0e7a2551b8292404ba997d0dd0d45c[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Wed Jul 19 00:55:57 2023 +0530
+
+    Added fronted to the showCoursesPage and create a edit page
+
+[33mcommit aa2ed3301516bef51f00856d682694e405b538e6[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Wed Jul 19 00:18:49 2023 +0530
+
+    Done some code cleaning in editPage-section of the website
+
+[33mcommit e5ac20425b2f032d7fe1ca0967e80aa3caba338a[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Tue Jul 18 23:43:16 2023 +0530
+
+    added fronted to the showcourses page and edit page
+
+[33mcommit ad1883c9e8b4e49dd8830395e78858356d821b76[m
+Merge: 29e8332e 41dc6e0c
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Sun Jul 16 22:38:50 2023 +0530
+
+    Merge branch 'main' of github.com:gauravsingh94/Projects-while-learning
+    added frontend to the login and the register pages
+
+[33mcommit 29e8332e9d6ae6836ceaa3aae837eb0cbb3c625e[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Sun Jul 16 22:32:55 2023 +0530
+
+    Added fronted to login-register pages
+
+[33mcommit 41dc6e0c6b8143c4a98cefd8170165ba84101c42[m
+Author: Gaurav Singh <99260988+gauravsingh94@users.noreply.github.com>
+Date:   Sat Jul 15 01:13:35 2023 +0530
+
+    Create README.md
+
+[33mcommit 0ffa04af719c8f3e9b5062777d6a7fa057fc7179[m
+Author: Gaurav Singh <99260988+gauravsingh94@users.noreply.github.com>
+Date:   Sat Jul 15 01:01:16 2023 +0530
+
+    Update README.md
+
+[33mcommit b514c7ad54b22443e9d6933ed4fc2b0d2e4a0a4d[m
+Author: Gaurav Singh <99260988+gauravsingh94@users.noreply.github.com>
+Date:   Sat Jul 15 00:58:19 2023 +0530
+
+    Update README.md
+
+[33mcommit c24812479e7564abba1405db099e8338c506c74b[m
+Author: Gaurav Singh <99260988+gauravsingh94@users.noreply.github.com>
+Date:   Sat Jul 15 00:57:05 2023 +0530
+
+    Update README.md
+
+[33mcommit bc23d73efcefe7264cd966fd7635e81c72249f2e[m
+Merge: 00700f73 d6f0b5cc
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Sat Jul 15 00:41:31 2023 +0530
+
+    Merge branch 'main' of github.com:gauravsingh94/Projects-while-learning
+    "Added a full stack course selling website"
+
+[33mcommit 00700f7396494aeaa74823445ba6e12e5b73fa9e[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Sat Jul 15 00:39:37 2023 +0530
+
+    made the full-stack-course-selling-website
+
+[33mcommit d6f0b5ccc2391e8ee070b6f96ba0cd4204b8fc45[m
+Author: Gaurav Singh <99260988+gauravsingh94@users.noreply.github.com>
+Date:   Fri Jul 14 02:51:54 2023 +0530
+
+    Update Readme.md
+
+[33mcommit 52ee49cc6c8b9b7ccb21fc9883a029b19b31b74f[m
+Author: Gaurav Singh <99260988+gauravsingh94@users.noreply.github.com>
+Date:   Fri Jul 14 02:42:08 2023 +0530
+
+    Update Readme.md
+
+[33mcommit 1a341fad3c74dc08259864273cad9d9e3b26ce1f[m
+Author: Gaurav Singh <99260988+gauravsingh94@users.noreply.github.com>
+Date:   Fri Jul 14 02:40:39 2023 +0530
+
+    Create Readme.md
+
+[33mcommit 0ce14da01358e3d98238f1ad7b08ddabe4dc78de[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Fri Jul 14 01:50:32 2023 +0530
+
+    added the frontend to the todo app using MUI
+
+[33mcommit e1e993f0b1daf3028e0bd92db631570472109f30[m
+Author: Gaurav Singh <99260988+gauravsingh94@users.noreply.github.com>
+Date:   Wed Jul 12 00:43:17 2023 +0530
+
+    Create README.md
+
+[33mcommit 22a21283794af4bdae83520758f4366ec5f88e06[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Wed Jul 12 00:38:42 2023 +0530
+
+    Added a todo-full-stack project
+
+[33mcommit da2f982d6924d89972e0d5b2b21cd6a6196604dc[m
+Author: Gaurav Singh <99260988+gauravsingh94@users.noreply.github.com>
+Date:   Tue Jul 4 00:11:54 2023 +0530
+
+    Delete todo-list-webiste-DOM/.vscode directory
+
+[33mcommit 4b6b658bc25bda3ab0ebe846f2c2adf070ff4185[m
+Author: Gaurav Singh <gauravrajputsingh94@gmail.com>
+Date:   Tue Jul 4 00:10:54 2023 +0530
+
+    todo-website-using-DOM
