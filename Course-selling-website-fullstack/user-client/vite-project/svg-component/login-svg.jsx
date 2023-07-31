@@ -1,14 +1,14 @@
 import React from "react";
 
-function LoginSvg() {
+function LoginSvg(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       data-name="Layer 1"
-      width="400"
-      height="300"
+      width={props.width}
+      height={props.height}
       viewBox="0 0 793 551.73152"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
     >
       <ellipse cx="158" cy="539.73152" rx="158" ry="12" fill="#e6e6e6" />
       <path

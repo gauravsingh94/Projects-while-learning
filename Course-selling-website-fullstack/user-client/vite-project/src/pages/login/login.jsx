@@ -1,9 +1,9 @@
 import React from "react";
 import LoginRegister from "../../compnents/login-register/LoginRegister";
- function Register(){
+ function Login(){
     return(<>
-        <LoginRegister website="Register" login={true} register={false}/>
+        <LoginRegister website="Login" login={false} register={true}/>
     </>)
 };
 
-export default Register;
+export default Login;
