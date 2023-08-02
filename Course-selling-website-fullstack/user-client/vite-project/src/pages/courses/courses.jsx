@@ -6,18 +6,18 @@ import { Box, Grid, Typography } from "@mui/material";
 
 function Courses() {
   const navContent = [
-    { text: "Courses", link: "/courses" },
-    { text: "Add Course", link: "/add" },
+    { text: "All Courses", link: "/courses" },
+    { text: "Purchased Courses", link: "/add" },
   ];
   return (
     <>
       <NavInternal data={navContent} />
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+
+          flexDirection:"column",
           height: "100vh",
+          marginTop:"50px"
         }}
       >
         <Grid
@@ -27,7 +27,7 @@ function Courses() {
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "row",
-            marginTop: "1050px",
+            marginTop: "50px",
             
           }}
         >
@@ -52,7 +52,7 @@ function Courses() {
               euismod. Aenean lacinia a nisl non fringilla.
             </Typography>
           </Grid>
-          <Grid item sx={{marginRight:"100px"}}>
+          <Grid item sx={{ textAlign: "center", marginBottom: "50px" }}>
             <CourseSvg />
           </Grid>
           <Grid item xs={12} sx={{ textAlign: "center", marginTop: "100px" }}>
@@ -78,7 +78,9 @@ function Courses() {
           <Grid item>
             <CourseCard />
           </Grid>
-          <Grid item sx={{flexGrow:"1",marginTop:"60px"}}>
+          
+
+          <Grid xs={12}item sx={{ marginTop: "60px" }}>
           <Footer/>
           </Grid>
         </Grid>

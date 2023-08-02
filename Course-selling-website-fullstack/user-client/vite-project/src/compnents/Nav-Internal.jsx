@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import PersonIcon from '@mui/icons-material/Person';
 
 function NavInternal(props) {
   const theme = useTheme();
@@ -62,6 +63,9 @@ function NavInternal(props) {
               {menuItem.map((item)=>{
                 return(<Tab key={a++} value={a++} label={item.text} component={Link} to={item.link} sx={{color:"white",fontWeight:"bold"}} />)
               })}
+              <IconButton>
+                <PersonIcon sx={{color:"white"}}/>
+              </IconButton>
             </Tabs>
           )}
         </Toolbar>
