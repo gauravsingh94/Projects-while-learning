@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   AppBar,
   Drawer,
@@ -15,19 +15,19 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import PersonIcon from '@mui/icons-material/Person';
+import PersonIcon from "@mui/icons-material/Person";
 
 function NavInternal(props) {
   const theme = useTheme();
   const isSmallDevice = useMediaQuery(theme.breakpoints.down("sm"));
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [value,setValue] =React.useState(1);
+  const [value, setValue] = React.useState(1);
 
-  const handleChange = (event,newValue)=>{
-    console.log("Event data:",event);
-    console.log("newValue:",newValue);
+  const handleChange = (event, newValue) => {
+    console.log("Event data:", event);
+    console.log("newValue:", newValue);
     setValue(newValue);
-  }
+  };
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -58,13 +58,21 @@ function NavInternal(props) {
               textColor="secondary"
               indicatorColor="secondary"
               aria-label="secondary tabs example"
-              
             >
-              {menuItem.map((item)=>{
-                return(<Tab key={a++} value={a++} label={item.text} component={Link} to={item.link} sx={{color:"white",fontWeight:"bold"}} />)
+              {menuItem.map((item) => {
+                return (
+                  <Tab
+                    key={a++}
+                    value={a++}
+                    label={item.text}
+                    component={Link}
+                    to={item.link}
+                    sx={{ color: "white", fontWeight: "bold" }}
+                  />
+                );
               })}
               <IconButton>
-                <PersonIcon sx={{color:"white"}}/>
+                <PersonIcon sx={{ color: "white" }} />
               </IconButton>
             </Tabs>
           )}

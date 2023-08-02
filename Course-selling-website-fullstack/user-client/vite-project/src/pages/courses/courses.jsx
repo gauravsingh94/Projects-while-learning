@@ -2,22 +2,25 @@ import NavInternal from "../../compnents/Nav-Internal";
 import CourseSvg from "../../../svg-component/course-svg";
 import CourseCard from "../../compnents/CourseCard";
 import Footer from "../../compnents/footer";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography,useMediaQuery,useTheme } from "@mui/material";
 
 function Courses() {
+  const theme = useTheme();
+  const isMobileDevice = useMediaQuery(theme.breakpoints.down("sm"));
   const navContent = [
     { text: "All Courses", link: "/courses" },
-    { text: "Purchased Courses", link: "/add" },
+    { text: "Purchased Courses", link: "/purchasedcourse" },
   ];
   return (
     <>
-      <NavInternal data={navContent} />
+      <NavInternal data={navContent} me={"/me"} />
       <Box
         sx={{
 
           flexDirection:"column",
           height: "100vh",
-          marginTop:"50px"
+          marginTop:"50px",
+          backgroundColor:"#fafafa"
         }}
       >
         <Grid
@@ -31,16 +34,17 @@ function Courses() {
             
           }}
         >
-          <Grid item sx={{flexGrow:"1",marginLeft:"100px"}}>
-            <Typography variant="h4">
+          <Grid item sx={{flexGrow:"1",marginLeft:isMobileDevice?"10%":"100px",marginRight:isMobileDevice?"10%":""}}>
+          <Typography variant={isMobileDevice ? "h5" : "h4"} sx={{textAlign:"center"}}>
               Courses from world best educator.
             </Typography>
             <Typography
               variant="body1"
               sx={{
                 justifyContent: "center",
-                maxWidth: "500px",
+                maxWidth: isMobileDevice?"300":"500px",
                 textAlign: "center",
+                marginLeft:isMobileDevice?"":"60px"
                 
               }}
             >

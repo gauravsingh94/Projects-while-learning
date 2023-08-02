@@ -13,22 +13,22 @@ function Footer() {
         sx={{ top: "auto", bottom: 0, backgroundColor: "#461959" }}
       >
         <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
-          <Typography variant="h6" color="inherit">
+          <Typography variant="body1" color="inherit"sx={{marginTop:"30px"}}>
             This website is made my Gaurav Singh.
           </Typography>
         </Toolbar>
         <Grid container sx={{display:"flex",justifyContent:"center"}}>
           <Grid item>
-            <IconButton>
-              <GitHubIcon sx={{color:"white"}}/>
+            <IconButton >
+              <GitHubIcon sx={{color:"white",fontSize:"small"}}/>
             </IconButton>
           </Grid>
-          <Grid item>
+          <Grid item sx={{marginBottom:"20px"}}>
         <IconButton>
-          <LinkedInIcon sx={{color:"white"}}/>
+          <LinkedInIcon sx={{color:"white",fontSize:"small"}}/>
         </IconButton>
         <IconButton>
-          <InstagramIcon sx={{color:"white"}}/>
+          <InstagramIcon sx={{color:"white",fontSize:"small"}}/>
         </IconButton>
           </Grid>
         </Grid>

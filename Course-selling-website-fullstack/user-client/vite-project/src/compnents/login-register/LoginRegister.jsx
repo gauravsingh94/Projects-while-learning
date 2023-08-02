@@ -25,7 +25,7 @@ function LoginRegister(props) {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          backgroundColor: "#e3c3ef",
+          backgroundColor: "#fafafa",
         }}
       >
         <Nav
