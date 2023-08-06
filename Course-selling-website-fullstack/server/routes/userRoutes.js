@@ -3,10 +3,22 @@ const router = express.Router();
 const { authenticateJwt, generateJwt } = require("../middlewares/authenticate");
 const User = require("../models/user");
 const Course = require("../models/course");
+const {z} = require("zod");
+
+const signupInput = z.object({
+  username:z.string().min(3,"Username should be at least 3 characters long.").max(10,"Username should not exceed 10 characters."),
+  password:z.string().min(8,"Password should be at least 8 characters long.").max(14,"Password should not exceed 14 characters."),
+}); 
 
 router.post("/signup", async (req, res) => {
-  // logic to sign up user
-  const { username, password } = req.body;
+  console.log(req.body);
+  const parsedInput = signupInput.safeParse(req.body);
+  if(!parsedInput.success){
+    res.status(411).json({error:parsedInput.error.issues[0]}); 
+    return;
+  }
+  const username = parsedInput.data.username;
+  const password = parsedInput.data.password;
   console.log(username, password);
   const user = await User.findOne({ username });
   if (user) {
@@ -21,14 +33,19 @@ router.post("/signup", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  // logic to log in user
-  const { username, password } = req.headers;
+  const parsedInput = signupInput.safeParse(req.headers);
+  if(!parsedInput.success){
+    res.status(411).json({error:parsedInput.error.issues[0]}); 
+    return;
+  }
+  const username = parsedInput.data.username;
+  const password = parsedInput.data.password;
   const user = await User.findOne({ username, password });
   if (user) {
     const token = generateJwt(user);
     res.json({ message: "Successfuly login as a user", token: token });
   } else {
-    res.json({ err: "username or password does not match." });
+    res.status(401).json({ err: "username or password does not match." });
   }
 });
 
