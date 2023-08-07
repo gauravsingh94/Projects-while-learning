@@ -1,26 +1,42 @@
-import React from "react"
+import React from "react";
 import { Typography } from "@mui/material";
 import MediaCard from "./MediaCard";
 
 import "./courseDetailCard.css";
+import { useRecoilValue } from "recoil";
+import { courseWithId } from "../../recoil/atom";
 
 function courseDetailsCard() {
-
+  const course = useRecoilValue(courseWithId);
   return (
     <>
       <div className="courseShow">
-        <Typography variant="h5" sx={{color:"white",textAlign:"center",fontWeight:"bold",marginLeft:"auto",marginRight:"auto"}}>Course Name will be here</Typography>
+        <Typography
+          variant="h3"
+          sx={{
+            color: "Black",
+            textAlign: "center",
+            fontWeight: "bold",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          {course.title}
+        </Typography>
         <div className="card">
-        <MediaCard/>
+          <MediaCard />
         </div>
         <div className="about">
-          <Typography sx={{fontWeight:"bold"}}>About</Typography>
-        <Typography sx={{marginLeft:"10px"}}>Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica.</Typography>
+          <Typography sx={{ fontWeight: "bold" }}>Description</Typography>
+          <Typography
+            sx={{ marginLeft: "10px",  textAlign: "left" }}
+          >
+            {course.description}
+          </Typography>
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default courseDetailsCard;

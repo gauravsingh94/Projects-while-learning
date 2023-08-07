@@ -5,10 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useTheme,useMediaQuery } from '@mui/material';
 
-export default function CourseCard() {
+export default function CourseCard(props) {
+  const theme = useTheme();
+  const isMobileDevice = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{width:isMobileDevice?"250px":"300px"}}>
       <CardMedia
         sx={{ height: 140 }}
         image="https://source.unsplash.com/random"
@@ -16,16 +19,15 @@ export default function CourseCard() {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" >
-          Courese-1
+          {props.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary" >
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        <Typography variant="body2" color="text.secondary" sx={{overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}  >
+          {props.description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" sx={{color:"purple"}}>View</Button>
-        <Button size="small" sx={{color:"purple"}}>Purchase</Button>
+        <Button size="small" onClick={()=>props.handleClick(props.courseId)} sx={{color:"purple"}}>{props.button1}</Button>
+        <Button size="small" onClick={()=>props.purchaseRoute(props.courseId)} sx={{color:"purple"}}>{props.button2}</Button>
       </CardActions>
     </Card>
   );

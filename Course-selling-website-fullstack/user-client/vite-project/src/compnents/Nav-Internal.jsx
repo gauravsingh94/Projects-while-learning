@@ -16,18 +16,28 @@ import {
 import { useTheme } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { DrawerOpenState, SelectedTab } from "../recoil/atom.js";
 
 function NavInternal(props) {
   const theme = useTheme();
   const isSmallDevice = useMediaQuery(theme.breakpoints.down("sm"));
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [value, setValue] = React.useState(1);
+  // const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const navContent = [
+    { text: "All Courses", link: "/allcourses" },
+    { text: "Purchased Courses", link: "/purchasedcourse" },
+  ];
+  const value = useRecoilValue(SelectedTab);
+  const setValue = useSetRecoilState(SelectedTab);
+
+  // const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
-    console.log("Event data:", event);
-    console.log("newValue:", newValue);
     setValue(newValue);
   };
+  const isDrawerOpen = useRecoilValue(DrawerOpenState);
+  const setIsDrawerOpen = useSetRecoilState(DrawerOpenState);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -39,7 +49,8 @@ function NavInternal(props) {
     setIsDrawerOpen(open);
   };
 
-  const menuItem = props.data;
+  const menuItem = navContent;
+  console.log(menuItem);
   let a = 1;
 
   return (
@@ -59,11 +70,12 @@ function NavInternal(props) {
               indicatorColor="secondary"
               aria-label="secondary tabs example"
             >
-              {menuItem.map((item) => {
+              {menuItem.map((item, index) => {
+                console.log("value", a);
                 return (
                   <Tab
-                    key={a++}
-                    value={a++}
+                    key={index}
+                    value={index}
                     label={item.text}
                     component={Link}
                     to={item.link}
@@ -71,9 +83,17 @@ function NavInternal(props) {
                   />
                 );
               })}
-              <IconButton>
-                <PersonIcon sx={{ color: "white" }} />
-              </IconButton>
+              <Tab
+                value="me"
+                component={Link}
+                to="/me"
+                label={
+                  <IconButton>
+                    <PersonIcon sx={{ color: "white" }} />
+                  </IconButton>
+                }
+                sx={{ color: "white", fontWeight: "bold" }}
+              />
             </Tabs>
           )}
         </Toolbar>
@@ -84,10 +104,15 @@ function NavInternal(props) {
           {menuItem.map((item, index) => {
             return (
               <ListItem key={index}>
-                <ListItemText primary={item.text} />
+                <Link to={item.link}>
+                  <ListItemText primary={item.text} />
+                </Link>
               </ListItem>
             );
           })}
+          <Link to={"/me"}>
+            <ListItemText primary="Me" sx={{marginLeft:"20px"}}  />
+          </Link>
         </List>
       </Drawer>
     </>

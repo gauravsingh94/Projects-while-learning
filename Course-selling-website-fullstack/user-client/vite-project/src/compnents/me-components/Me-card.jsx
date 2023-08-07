@@ -9,8 +9,7 @@ function MeCard() {
   return (
     <>
       <div className="courseShow1">
-        <Typography variant="h5" sx={{color:"white",textAlign:"center",fontWeight:"bold",marginLeft:"auto",marginRight:"auto"}}>Course Name will be here</Typography>
-        <div className="card">
+        <div className="card1">
         <MeMediaCard/>
         </div>
         <div className="about">

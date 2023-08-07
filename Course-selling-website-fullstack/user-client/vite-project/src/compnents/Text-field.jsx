@@ -6,7 +6,9 @@ function TextFieldCustom(props) {
     <TextField
       id="filled-basic"
       label={props.lable}
+      type={props.type}
       variant="standard"
+      onChange={props.onChange}
       InputLabelProps={{
         sx: {
           [`&.${inputLabelClasses.shrink}`]: {

@@ -5,10 +5,38 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import EditIcon from '@mui/icons-material/Edit';
 import { IconButton } from '@mui/material';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function MeMediaCard() {
+  const navigate = useNavigate();
+
+  const [username,setUsername] = React.useState("");
+  
+  const getUserData = async()=>{
+    const headers = {
+      authorization: "Bearer " + localStorage.getItem("token"),
+      "Content-Type": "application/json",
+    };
+    try{
+      const res = await axios.get("http://localhost:3000/user/me",{headers});
+      setUsername(res.data);
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
+  const handleLogout=() =>{
+    localStorage.removeItem("token");
+    navigate("/login");
+  }
+
+  React.useEffect(()=>{
+    getUserData();
+  },[])
+  
   return (
     <Card sx={{width:"200px"}}>
       <CardMedia
@@ -18,12 +46,11 @@ export default function MeMediaCard() {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Gaurav Singh
+          {username}
         </Typography>
       </CardContent>
       <CardActions sx={{justifyContent:"space-between"}}>
-        <IconButton><EditIcon/></IconButton>
-        <Button variant="outlined"  size="small" sx={{color:"Purple",fontWeight:"bold"}}>Logout</Button>
+        <Button variant="outlined"  size="small" onClick={handleLogout} sx={{color:"Purple",fontWeight:"bold"}}>Logout</Button>
       </CardActions>
     </Card>
   );

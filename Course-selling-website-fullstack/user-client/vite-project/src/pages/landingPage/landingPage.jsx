@@ -21,7 +21,7 @@ function LandingPage() {
           alignItems: "center",
         }}
       >
-        <Nav />
+        <Nav login={true} register={true } />
         {isMobileDevice?(
         <>
           <Typography variant="h5">

@@ -15,8 +15,8 @@
 .about{
     margin-left: 0px;
     margin-top: 320px;
-    margin-right: 250px;
-    max-width: 900px;
+    margin-right: 25px;
+    width: 800px;
     position: absolute;
     
 }
@@ -32,6 +32,6 @@
         margin-left: auto;
         margin-top: 820px;
         margin-right:auto;
-        max-width: 450px;
+        max-width: 100px;
     }
 }

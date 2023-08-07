@@ -14,8 +14,10 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link, useNavigate } from "react-router-dom";
 
 function Nav(props) {
+  const navigate = useNavigate();
   const theme = useTheme();
   const isSmallDevice = useMediaQuery(theme.breakpoints.down("sm"));
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -30,9 +32,17 @@ function Nav(props) {
     setIsDrawerOpen(open);
   };
 
+  const handleRegister = () => {
+    navigate("/register");
+  };
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
   const menuItem = [
     { text: "Login", link: "/login" },
-    { text: "Signup", link: "/signup" },
+    { text: "Signup", link: "/register" },
   ];
 
   return (
@@ -47,7 +57,11 @@ function Nav(props) {
           ) : (
             <div style={{ display: "flex" }}>
               {props.login ? (
-                <Button variant="outlined" color="inherit">
+                <Button
+                  variant="outlined"
+                  color="inherit"
+                  onClick={handleLogin}
+                >
                   Login
                 </Button>
               ) : (
@@ -57,6 +71,7 @@ function Nav(props) {
                 <Button
                   variant="outlined"
                   color="inherit"
+                  onClick={handleRegister}
                   sx={{ marginLeft: "15px" }}
                 >
                   Register
@@ -74,7 +89,9 @@ function Nav(props) {
           {menuItem.map((item, index) => {
             return (
               <ListItem key={index}>
-                <ListItemText primary={item.text} />
+                <Link to={item.link}>
+                  <ListItemText primary={item.text} />
+                </Link>
               </ListItem>
             );
           })}
